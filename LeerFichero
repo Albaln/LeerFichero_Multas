@@ -1,0 +1,44 @@
+public class Leerfichero {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws IOException {
+
+        FileInputStream fichero;
+
+        BufferedReader buffer;
+
+        InputStreamReader isr;
+
+        fichero = new FileInputStream("D:/ficherosjava/multas5.txt");
+
+        isr = new InputStreamReader(fichero, "UTF8");
+
+        buffer = new BufferedReader(isr);
+
+        String linea;
+        int i = 0;
+        
+        
+        
+        // nreg, matricula, fecha,cod1,importe,cod2
+        String a[] = {"Nreg", "matricula", "fecha", "cod1", "importe", "cod2"};
+        while ((linea = buffer.readLine()) != null) {
+            String[] parts = linea.split(" ");
+            
+            i=0;
+            while( i < 6) {
+                
+                System.out.print(a[i] + " " + parts[i] + " ");
+                
+                i++;
+            }
+            System.out.println("");
+
+        }
+           buffer.close();
+        
+    }
+
+}
